@@ -1,0 +1,78 @@
+﻿@model IEnumerable<smstylers.Models.Surfboards>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container pt-5">
+    <div class="fixpp">
+        <div class="row">
+            <div class="col-md-8 order-md-2 col-lg-9">
+                <div class="container-fluid">
+                    <div class="row   mb-5">
+                    </div>
+
+
+                    <div class="row">
+
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-6 col-md-6 col-lg-4 mb-3">
+                                <div class="card h-100 border-0">
+                                    <div class="card-img-top">
+                                        <img src="@Html.DisplayFor(modelItem => item.AfbeeldingsUrl)" class="img-fluid mx-auto d-block" alt="img">
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <h4 class="card-title">
+                                            <a href="product.html" class=" font-weight-bold text-dark text-uppercase small"> @Html.DisplayFor(modelItem => item.Product)</a>
+                                        </h4>
+                                        <h5 class="card-price small text-warning">
+                                            <i>
+                                                Vanaf: €@Html.DisplayFor(modelItem => item.Prijs),-
+                                            </i>
+                                            <a class="btn btn-sm btn-primary mt-5" asp-action="Speci" asp-route-id="@item.Id">Meer info</a>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+                    </div>
+                </div>
+
+
+            </div><div class="col-md-4 order-md-1 col-lg-3 sidebar-filter">
+                <h3 class="mt-0 mb-5">Surfboarden</h3>
+                <h6 class="text-uppercase font-weight-bold mb-3">Materiaal</h6>
+                <div class="mt-2 mb-2 pl-2">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="category-1">
+                        <label class="custom-control-label" for="category-1">Hout</label>
+                    </div>
+                </div>
+                <div class="mt-2 mb-2 pl-2">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="category-2">
+                        <label class="custom-control-label" for="category-2">Polyester</label>
+                    </div>
+                </div>
+                <div class="mt-2 mb-2 pl-2">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="category-3">
+                        <label class="custom-control-label" for="category-3">epoxy</label>
+                    </div>
+                </div>
+              
+                <div class="divider mt-5 mb-5 border-bottom border-secondary"></div>
+                <h6 class="text-uppercase mt-5 mb-3 font-weight-bold">prijs</h6>
+                <div class="price-filter-control">
+                    <input type="number" class="form-control w-50 pull-left mb-2" value="50" id="price-min-control">
+                    <input type="number" class="form-control w-50 pull-right" value="150" id="price-max-control">
+                </div>
+                <input id="ex2" type="text" class="slider " value="50,150" data-slider-min="10" data-slider-max="200" data-slider-step="5" data-slider-value="[50,150]" data-value="50,150" style="display: none;">
+                <div class="divider mt-5 mb-5 border-bottom border-secondary"></div>
+                <a href="#" class="btn btn-lg btn-block btn-primary mt-5">Update Results</a>
+            </div>
+
+        </div>
+    </div>
+</div>

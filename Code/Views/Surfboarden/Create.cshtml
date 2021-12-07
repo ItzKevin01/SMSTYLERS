@@ -1,0 +1,51 @@
+﻿@model smstylers.Models.Surfboards
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="container" style="margin-top: 20px !important;">
+
+    <h4>Admin - Surfboarden - Toevoegen</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Product" class="control-label"></label>
+                    <input asp-for="Product" class="form-control" />
+                    <span asp-validation-for="Product" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Beschrijving" class="control-label"></label>
+                    <input asp-for="Beschrijving" class="form-control" />
+                    <span asp-validation-for="Beschrijving" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Prijs" class="control-label"></label>
+                    <input asp-for="Prijs" class="form-control" />
+                    <span asp-validation-for="Prijs" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AfbeeldingsUrl" class="control-label"></label>
+                    <input asp-for="AfbeeldingsUrl" class="form-control" />
+                    <span asp-validation-for="AfbeeldingsUrl" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MateriaalId" class="control-label"></label>
+                    <select asp-for="MateriaalId" class="form-control" asp-items="ViewBag.MateriaalId"></select>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Terug naar surfboarden</a>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

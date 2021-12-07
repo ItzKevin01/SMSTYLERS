@@ -1,0 +1,39 @@
+﻿@model IEnumerable<smstylers.Controllers.faq>
+
+@{
+    ViewData["Title"] = "FAQ";
+}
+
+<div class="container-fluid">
+    <!-- Row -->
+    <div class="row">
+        <div class="col-xl-12 pa-0">
+            <div class="container mt-sm-60 mt-30">
+                <div class="hk-row">
+                    <div class="col-xl-8">
+                        <div class="card card-lg">
+                            <h3 class="card-header border-bottom-0">
+                                Veel gestelde vragen:
+                            </h3>
+                            <div class="accordion accordion-type-2 accordion-flush" id="accordion_2">
+                                @foreach (var item in Model)
+                                {
+                                    <div class="card">
+                                        <div class="card-header d-flex justify-content-between">
+                                            <a class="collapsed" role="button" data-toggle="collapse" href="#collapse_@Html.DisplayFor(modelItem => item.Id)i" aria-expanded="false">@Html.DisplayFor(modelItem => item.Vraag)</a>
+                                        </div>
+                                        <div id="collapse_@Html.DisplayFor(modelItem => item.Id)i" class="collapse" data-parent="#accordion_2">
+                                            <div class="card-body pa-15">@Html.DisplayFor(modelItem => item.Antwoord)</div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Row -->
+</div>

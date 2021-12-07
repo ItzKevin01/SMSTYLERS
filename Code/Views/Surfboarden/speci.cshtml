@@ -1,0 +1,97 @@
+﻿<!--Section: Block Content-->
+@model smstylers.Models.Surfboards
+
+@{
+    ViewData["Title"] = @Html.DisplayFor(model => model.Product);
+}
+
+<div class="container gofromtop">
+    <div class="card">
+        <div class="row">
+            <aside class="col-sm-5 border-right">
+                <article class="gallery-wrap">
+                    <div class="img-big-wrap">
+                        <div> <a href="#"><img src="@Html.DisplayFor(model => model.AfbeeldingsUrl)"></a></div>
+                    </div> <!-- slider-product.// -->
+                </article> <!-- gallery-wrap .end// -->
+            </aside>
+            <aside class="col-sm-7">
+                <article class="card-body p-5">
+                    <h3 class="title mb-3">@Html.DisplayFor(model => model.Product)</h3>
+
+                    <p class="price-detail-wrap">
+                        <span class="price h3 text-warning">
+                            <span class="currency">Vanaf €@Html.DisplayFor(model => model.Prijs),-</span>
+                        </span>
+                    </p> <!-- price-detail-wrap .// -->
+                    <dl class="item-property">
+                        <dt>Beschrijving</dt>
+                        <dd>
+                            <p>
+                                @Html.DisplayFor(model => model.Beschrijving)
+                            </p>
+                        </dd>
+                    </dl>
+                    <dl class="param param-feature">
+                        <dt>Materialen</dt>
+                        <dd>@Html.DisplayFor(model => model.Materiaal.Naam)</dd>
+                    </dl>  <!-- item-property-hor .// -->
+                    <hr>
+                    <button type="button" class="btn btn-lg btn-primary text-uppercase" data-toggle="modal" data-target="#exampleModal">
+                        Test afspraak maken
+                    </button>
+                </article> <!-- card-body.// -->
+            </aside> <!-- col.// -->
+        </div> <!-- row.// -->
+    </div> <!-- card.// -->
+</div>
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Afspraak maken</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <fieldset disabled>
+                        <div class="form-group">
+                            <label for="disabledTextInput">Surfboard:</label>
+                            <input type="text" id="disabledTextInput" class="form-control" placeholder="@Html.DisplayFor(model => model.Product)">
+                        </div>
+                    </fieldset>
+                    <fieldset disabled>
+                        <div class="form-group">
+                            <label for="disabledTextInput">Materiaal:</label>
+                            <input type="text" id="disabledTextInput" class="form-control" placeholder="@Html.DisplayFor(model => model.Materiaal.Naam)">
+                        </div>
+                    </fieldset>
+                    <div class="form-row align-items-center">
+                        <div class="col-sm-6 my-1">
+                            <label for="disabledTextInput">Voornaam:</label>
+                            <input type="text" class="form-control" id="inlineFormInputName" placeholder="Voornaam">
+                        </div>
+                        <div class="col-sm-6 my-1">
+                            <label for="disabledTextInput">Achternaam:</label>
+                            <input type="text" class="form-control" id="inlineFormInputName" placeholder="Achternaam">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="disabledTextInput">Email:</label>
+                        <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="disabledTextInput">Telefoonnummer:</label>
+                        <input type="email" class="form-control" id="inputEmail3" placeholder="Telefoonummer">
+                    </div>
+                    </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Afspraak bevestigen</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Section: Block Content-->
